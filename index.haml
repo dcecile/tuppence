@@ -1,0 +1,66 @@
+!!!
+%html
+  %head
+    %title Tuppence - savings account rankings for penny-wise Canadians
+    :css
+      #{@reset}
+    :css
+      #{@style}
+  %body
+    %header
+      %hgroup
+        %h1 Tuppence:
+        %h2 Savings account rankings for penny-wise Canadians
+    #layout-container-outer
+      #layout-container-inner
+        %section
+          %table
+            %tr
+              %th Rank
+              %th Institution
+              %th Interest rate
+            - @rankings.each do |r|
+              %tr
+                %td
+                  = precede r.rank_number do
+                    %sup<= r.rank_suffix
+                %td
+                  %a{ :href => r.human_uri }<
+                    = r.name
+                  -if r.regional_uri
+                    %span.regional
+                      = surround '(', ')' do
+                        %a{ :href => r.regional_uri }<
+                          regional
+                %td #{format('%.2f', r.rate)}%
+        %aside
+          %blockquote
+            %p
+              If you invest your tuppence
+              %br
+              wisely in the bank
+              %br
+              safe
+              %br
+              and
+              %br
+              sound,
+              %br
+              Soon that tuppence
+              %br
+              safely invested in the bank
+              %br
+              will
+              %br
+              com-
+              %br
+              pound.
+            %cite
+              Mr. Dawes Senior,
+              %a{ :href => 'http://www.youtube.com/watch?v=jt9JpYRulSk' }
+                Mary Poppins (1964)
+    %footer
+      interest rates updated daily,
+      created by Dan Cecile,
+      %a{ :href => 'https://github.com/dcecile/tuppence' }
+        code available on GitHub

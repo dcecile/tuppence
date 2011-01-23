@@ -1,0 +1,169 @@
+@charset "utf-8"
+
+/* Typeface */
+/* http://fonts.googleapis.com/css?family=Vollkorn:regular,italic */
+@font-face 
+  font-family: 'Vollkorn'
+  font-style: normal
+  font-weight: normal
+  src: local('Vollkorn Regular'), local('Vollkorn-Regular'), url('http://themes.googleusercontent.com/font?kit=7jR1T900H5YEkd1UcZhA_fesZW2xOQ-xsNqO47m55DA') format('truetype')
+
+@font-face
+  font-family: 'Vollkorn'
+  font-style: italic
+  font-weight: normal
+  src: local('Vollkorn Italic'), local('Vollkorn-Italic'), url('http://themes.googleusercontent.com/font?kit=Oiz0tNwvC-Nd29SBQWfWTC3USBnSvpkopQaUR-2r7iU') format('truetype')
+
+body
+  font-family: 'Vollkorn', serif
+
+section
+  //font-family: serif
+
+/* Text size and weight */
+$size0: 36pt 
+$size1: 24pt
+$size2: 21pt
+$size3: 18pt
+$size4: 14pt
+$size5: 12pt
+$size6: 11pt
+$size7: 10pt
+$size8: 9pt
+$size9: 8pt
+$size10: 7pt
+$size11: 6pt
+
+body
+  line-height: 1.5em
+
+  font-size: $size5
+
+h1
+  font-size: $size0
+
+h2
+  font-size: $size2
+  font-style: italic
+
+table
+  font-size: $size4
+
+th
+  text-transform: uppercase
+
+td sup
+  vertical-align: super
+  font-size: $size9
+
+blockquote
+  font-style: italic
+  font-size: $size4
+  line-height: 1.2em
+
+span.regional
+  font-style: italic
+
+/* Whitespace */
+h1
+  margin-top: 0.5em
+  margin-bottom: 0.5em
+  text-align: center
+
+h2
+  margin-top: 0.5em
+  margin-bottom: 0.5em
+  text-align: center
+
+header
+  padding-bottom: 0.5em
+
+footer
+  padding-top: 0.5em
+  text-align: center
+
+th
+  padding-top: 0.25em
+  padding-left: 0.5em
+  padding-right: 0.5em
+  text-align: left
+
+td
+  padding-left: 0.5em
+  padding-right: 0.5em
+
+blockquote
+  padding-top: 1em
+  padding-bottom: 1em
+  padding-left: 1em
+  padding-right: 1em
+
+/* Colour */
+tr:nth-child(odd)
+  background-color: #eee
+
+blockquote
+  color: #444
+  background-color: #f7f7f7
+
+/* Borders */
+$borderColour: #888
+
+header
+  border-bottom: 2px solid $borderColour
+
+table
+  border: 1px solid $borderColour
+
+footer
+  border-top: 1px solid $borderColour
+
+/* Positioning */
+/* (credit to Alan Pearce, http://www.alistapart.com/articles/multicolumnlayouts/) */
+$asideWidth: 19em
+
+#layout-container-outer
+  margin-top: 3em
+  margin-left: 3em
+  padding-right: $asideWidth
+
+#layout-container-inner
+  width: 100%
+  float: left
+  border-right: $asideWidth none
+  margin-right: -$asideWidth
+  margin-bottom: 3em
+
+section
+  float: left
+  width: 100%
+
+table
+  width: 100%
+
+aside
+  float: right
+  width: $asideWidth
+  margin-right: -$asideWidth
+  position: relative
+
+blockquote
+  margin-left: 2.5em
+  margin-top: 1em
+
+footer
+  clear: both
+
+cite
+  text-align: left
+  margin-left: 4em
+  display: block
+
+cite a
+  display: block
+
+/* Content */
+cite:before
+  content: '—'
+  float: left
+  margin-left: -1.0em
