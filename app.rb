@@ -85,7 +85,7 @@ class App < Sinatra::Base
     data = Couch.get
 
     # Initialize variables used for rank ties
-    previous_rank = nil
+    previous_rank = 0
     previous_rate = nil
 
     # Determine the rankings for each institution
@@ -112,7 +112,7 @@ class App < Sinatra::Base
       # Do real rankings with ties accounted for
       map do |r, n|
         if r.rate != previous_rate
-          previous_rank = n + 1
+          previous_rank += 1
           previous_rate = r.rate
         end
         [r, previous_rank]
