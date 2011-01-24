@@ -17,13 +17,14 @@
           %table
             %tr
               %th Rank
-              %th Institution
               %th Interest rate
+              %th Institution
             - @rankings.each do |r|
               %tr
                 %td
                   = precede r.rank_number do
                     %sup<= r.rank_suffix
+                %td #{format('%.2f', r.rate)}%
                 %td
                   %a{ :href => r.human_uri }<
                     = r.name
@@ -32,7 +33,6 @@
                       = surround '(', ')' do
                         %a{ :href => r.regional_uri }<
                           regional
-                %td #{format('%.2f', r.rate)}%
         %aside
           %blockquote
             %p
