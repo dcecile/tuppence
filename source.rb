@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'json'
 require 'nokogiri'
+require 'ostruct'
 
 # Web scraping source
 class Source
@@ -65,9 +66,10 @@ end
 class HtmlSource < Source
 
   # Pass in XPath target
-  def initialize(id, name, human_uri, robot_uri, regional_uri, target)
-    super id, name, human_uri, robot_uri, regional_uri
-    @target = target
+  def initialize(data)
+    data = OpenStruct.new data
+    super data.id, data.name, data.human_uri, data.robot_uri, data.regional_uri
+    @target = data.target
   end
 
   def get
@@ -97,10 +99,11 @@ end
 class JavascriptSource < Source
 
   # Pass in target and check lambdas
-  def initialize(id, name, human_uri, robot_uri, regional_uri, target, *checks)
-    super id, name, human_uri, robot_uri, regional_uri
-    @target = target
-    @checks = checks
+  def initialize(data)
+    data = OpenStruct.new data
+    super data.id, data.name, data.human_uri, data.robot_uri, data.regional_uri
+    @target = data.target
+    @checks = data.checks
   end
 
   def get
