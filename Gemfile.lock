@@ -2,7 +2,10 @@ GEM
   remote: http://rubygems.org/
   specs:
     backports (1.18.2)
+    exceptional (2.0.32)
+      rack
     haml (3.0.25)
+    json (1.4.6)
     mime-types (1.16)
     monkey-lib (0.5.4)
       backports
@@ -29,7 +32,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  exceptional
   haml
+  json
   nokogiri
   rest-client
   sinatra

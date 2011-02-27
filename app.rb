@@ -14,6 +14,8 @@ require 'institutions'
 require 'benchmarks'
 require 'couch'
 
+require 'exceptional'
+
 AllSources = Institutions + Benchmarks
 
 # Add alias for pretty JSON output
@@ -55,7 +57,13 @@ class App < Sinatra::Base
   # Set up reloading during development
   configure :development do
     register Sinatra::Reloader
-    also_reload "*.rb"
+    also_reload '*.rb'
+  end
+
+  # Set up exception logging with Exceptional
+  configure :production do
+    set :raise_errors, true
+    use Rack::Exceptional, ENV['EXCEPTIONAL_API_KEY']
   end
 
   # Set paths
