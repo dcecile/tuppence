@@ -5,7 +5,7 @@ Benchmarks =
   HtmlSource.new(
     'overnight',
     'Target Overnight Lending Rate',
-    'http://www.bankofcanada.ca/rates/daily-digest/',
+    'http://bankofcanada.ca/en/rates/digest.html',
     nil,
     nil,
     '//td[text() = "Target for the overnight rate"]' +
@@ -14,7 +14,7 @@ Benchmarks =
   HtmlSource.new(
     'prime',
     'Prime Rate',
-    'http://www.bankofcanada.ca/rates/daily-digest/',
+    'http://bankofcanada.ca/en/rates/digest.html',
     nil,
     nil,
     '//td[text() = "Prime business rate"]' +
